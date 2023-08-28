@@ -1,5 +1,5 @@
 'use client';
-import { Menu, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { Poppins } from 'next/font/google';
 import { UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { ModeToggle } from '@/components/mode-toggle';
+import MobileSidebar from '@/components/mobile-sidebar';
 
 const font = Poppins({
   weight: '600',
@@ -17,7 +18,7 @@ const Navbar = () => {
   return (
     <div className='fixed w-screen z-50 flex justify-between items-center py-2 px-4 h-16 border-b border-primary/10 bg-secondary'>
       <div className='flex items-center'>
-        <Menu className='block md:hidden' />
+        <MobileSidebar />
         <Link href='/'>
           <h1
             className={cn(
