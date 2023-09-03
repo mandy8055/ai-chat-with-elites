@@ -19,6 +19,13 @@ export const ProModal = () => {
   const proModal = useProModalStore();
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null; // to get rid of hydration if it happens
+
   const onSubscribe = async () => {
     try {
       setLoading(true);
@@ -48,7 +55,7 @@ export const ProModal = () => {
         <Separator />
         <div className='flex justify-between'>
           <p className='text-2xl font-medium'>
-            $9<span className='text-sm font-normal'>.99 / mo</span>
+            ₹150<span className='text-sm font-normal'>.00 / mo</span>
           </p>
           <Button onClick={onSubscribe} disabled={loading} variant='premium'>
             Subscribe
